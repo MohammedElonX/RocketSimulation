@@ -7,6 +7,8 @@ import java.util.UUID;
 import static java.lang.Integer.parseInt;
 
 public class Simulation{
+    List<Integer> fleetCosts = new ArrayList<Integer>();
+
     public List loadItems(String phase) throws FileNotFoundException {
         FileInputStream rocketPhase = new FileInputStream(phase);
         BufferedReader itemList = new BufferedReader(new InputStreamReader(rocketPhase));
@@ -88,13 +90,12 @@ public class Simulation{
             System.out.println("-- Current simulation cost: $" + currentFleetCost);
             System.out.println("");
         }
-        ArrayList fleetCosts;
+        //ArrayList fleetCosts = new ArrayList<>();
         fleetCosts.add(currentFleetCost);
 
         Integer totalCost = fleetCosts.stream().mapToInt(Integer::intValue).sum();
-
         return totalCost;
-            }
+
         }
     }
-}
+
